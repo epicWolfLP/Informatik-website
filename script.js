@@ -5,7 +5,7 @@ document.getElementById("inputField").addEventListener("keypress", function(even
         if (input === "party") {
             document.body.classList.add("party-mode");
             removeMedia();
-        }
+        } 
 
         else if (input === "taco bell") {
             removeMedia();
@@ -16,10 +16,12 @@ document.getElementById("inputField").addEventListener("keypress", function(even
             removeMedia();
             showGif("image/backshot.gif");
         }
+
         else if (input === "perfect") {
             removeMedia();
             showGif("image/perfect.gif");
         }
+
         else if (input === "stop") {
             removeMedia();
             document.body.classList.remove("party-mode");
@@ -28,40 +30,49 @@ document.getElementById("inputField").addEventListener("keypress", function(even
         this.value = "";
     }
 });
+
 function removeMedia() {
-    let existingMedia = document.getElementById("backgroundMedia");
+    let existingMedia = document.getElementById("mediaContainer");
     if (existingMedia) {
-        existingMedia.remove();
+        existingMedia.innerHTML = "";
     }
 }
 
 function showVideo(videoSrc) {
+    let container = getOrCreateMediaContainer();
+
     let video = document.createElement("video");
-    video.id = "backgroundMedia";
     video.src = videoSrc;
     video.autoplay = true;
     video.loop = true;
-    video.muted = true;
-    video.style.position = "fixed";
-    video.style.top = "0";
-    video.style.left = "0";
-    video.style.width = "100vw";
-    video.style.height = "100vh";
-    video.style.objectFit = "cover";
-    video.style.zIndex = "-1";
-    document.body.appendChild(video);
+    video.controls = true;
+    video.style.width = "600px"; 
+    video.style.maxWidth = "100%"; 
+
+    container.appendChild(video);
 }
 
 function showGif(gifSrc) {
+    let container = getOrCreateMediaContainer();
+
     let img = document.createElement("img");
-    img.id = "backgroundMedia";
     img.src = gifSrc;
-    img.style.position = "fixed";
-    img.style.top = "0";
-    img.style.left = "0";
-    img.style.width = "100vw";
-    img.style.height = "100vh";
-    img.style.objectFit = "cover";
-    img.style.zIndex = "-1";
-    document.body.appendChild(img);
+    img.style.width = "600px"; 
+    img.style.maxWidth = "100%";
+
+    container.appendChild(img);
+}
+
+function getOrCreateMediaContainer() {
+    let container = document.getElementById("mediaContainer");
+    if (!container) {
+        container = document.createElement("div");
+        container.id = "mediaContainer";
+        container.style.textAlign = "center"; 
+        container.style.marginTop = "20px"; 
+
+        let inputField = document.getElementById("inputField");
+        inputField.parentNode.insertBefore(container, inputField.nextSibling);
+    }
+    return container;
 }
