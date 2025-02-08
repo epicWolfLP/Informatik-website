@@ -1,0 +1,119 @@
+body {
+    background-color: #616a6b;
+}
+
+#head {
+    background-color: black;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 2px -2px rgba(0, 0, 0, 0.5);
+    padding: 0 20px;
+}
+
+#rcorners1 {
+    border-radius: 25px;
+    background-color: black;
+    padding: 15px;
+    width: 565px;
+    height: 350px;
+    position: relative;
+    animation: slideIn 4s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+
+#rcorners2 {
+    border-radius: 25px;
+    background-color: black;
+    padding: 15px;
+    width: 565px;
+    height: 350px;
+    position: relative;
+    animation: slideIn 4s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
+}
+
+#rcorners3 {
+    border-radius: 25px;
+    background-color: black;
+    padding: 15px;
+    width: 565px;
+    height: 350px;
+    position: relative;
+    animation: slideIn 4s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.party-mode {
+    animation: rainbowBackground 3s linear infinite;
+}
+
+@keyframes rainbowBackground {
+    0% { background-color: red; }
+    16% { background-color: orange; }
+    33% { background-color: yellow; }
+    50% { background-color: green; }
+    66% { background-color: blue; }
+    83% { background-color: indigo; }
+    100% { background-color: violet; }
+}
+
+p {
+    font-family: 'Bebas Neue', sans-serif;
+    width: 600px;
+}
+
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: white;
+}
+
+h2 {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+h3 {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+p2 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: white;
+}
+
+input { 
+    font-family: Arial, sans-serif; 
+    width: 300px; 
+    padding: 5px; 
+    margin-top: 10px;
+    opacity: 0;
+    pointer-events: auto;
+}
+
+canvas { 
+    font-family: Arial, sans-serif; 
+    display: none; 
+    order: 1px solid black; 
+}
+
+opacity: 0;
+    pointer-events: auto;
