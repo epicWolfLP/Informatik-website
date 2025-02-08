@@ -30,7 +30,6 @@ document.getElementById("inputField").addEventListener("keypress", function(even
         this.value = "";
     }
 });
-
 function removeMedia() {
     let existingMedia = document.getElementById("mediaContainer");
     if (existingMedia) {
@@ -46,8 +45,14 @@ function showVideo(videoSrc) {
     video.autoplay = true;
     video.loop = true;
     video.controls = true;
-    video.style.width = "600px"; 
-    video.style.maxWidth = "100%"; 
+    video.style.width = "600px";
+    video.style.maxWidth = "100%";
+    video.style.borderRadius = "10px";
+
+    video.addEventListener("canplay", function () {
+        video.muted = false;
+        video.play();
+    });
 
     container.appendChild(video);
 }
@@ -59,6 +64,7 @@ function showGif(gifSrc) {
     img.src = gifSrc;
     img.style.width = "600px"; 
     img.style.maxWidth = "100%";
+    img.style.borderRadius = "10px";
 
     container.appendChild(img);
 }
