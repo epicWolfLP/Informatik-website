@@ -16,6 +16,10 @@ document.getElementById("inputField").addEventListener("keypress", function(even
             removeMedia();
             showGif("image/backshot.gif");
         }
+        else if (input === "perfect") {
+            removeMedia();
+            showGif("image/perfect.gif");
+        }
         else if (input === "stop") {
             removeMedia();
             document.body.classList.remove("party-mode");
