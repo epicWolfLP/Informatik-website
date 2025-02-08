@@ -14,7 +14,7 @@ document.getElementById("inputField").addEventListener("keypress", function(even
 
         else if (input === "backshot") {
             removeMedia();
-            showGif("images/backshot.gif");
+            showGif("image/backshot.gif");
         }
         else if (input === "stop") {
             removeMedia();
